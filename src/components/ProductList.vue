@@ -3,6 +3,7 @@
     <div class="wrapper">
       <div class="product-list-con">
         <div class="product-header">
+          <h2>Product List</h2>
           <button @click="showAddForm = true">Add Product</button>
         </div>
         <div
@@ -19,7 +20,6 @@
         </div>
       </div>
     </div>
-
     <div v-if="showAddForm" class="add-product-form">
       <div class="add-product-header">
         <h2>Add Product</h2>
@@ -105,6 +105,21 @@ export default {
 </script>
 
 <style scoped>
+.product-list-con {
+  padding: 100px 0;
+}
+.wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .add-product-form {
   position: fixed;
   top: 50%;

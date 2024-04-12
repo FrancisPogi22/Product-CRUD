@@ -18,6 +18,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  left: 0;
   padding: 30px;
   background: #ffffff;
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
