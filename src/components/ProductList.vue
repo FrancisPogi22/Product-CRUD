@@ -16,8 +16,8 @@
             {{ product.description }}
             {{ product.price }}
             <div class="btn-con">
-              <button @click="deleteProduct()" class="delete">Delete</button>
               <button @click="editProduct()" class="edit">Edit</button>
+              <button @click="deleteProduct()" class="delete">Delete</button>
             </div>
           </div>
         </div>
@@ -144,7 +144,17 @@ export default {
 }
 
 #product .edit {
-  background: #eab308;
+  background: #facc15;
+}
+
+#product .delete {
+  background: #ef4444;
+}
+
+#product .btn-con {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 button {
