@@ -4,68 +4,80 @@ export default createStore({
   state: {
     productList: [
       {
-        title: "SNOWFLAKES",
-        desciption: "James Smith",
+        name: "SNOWFLAKES",
+        description: "James Smith",
         price: 100,
       },
       {
-        title: "DREAMCATCHER",
-        desciption: "Emily Johnson",
+        name: "DREAMCATCHER",
+        description: "Emily Johnson",
         price: 200,
         status: 0,
       },
       {
-        title: "HEARTBEATS",
-        desciption: "Benjamin Brown",
+        name: "HEARTBEATS",
+        description: "Benjamin Brown",
         price: 300,
         status: 0,
       },
       {
-        title: "NIGHTMARES",
-        desciption: "Sophia Lee",
+        name: "NIGHTMARES",
+        description: "Sophia Lee",
         price: 400,
         status: 0,
       },
       {
-        title: "AFTERMATHS",
-        desciption: "Daniel White",
+        name: "AFTERMATHS",
+        description: "Daniel White",
         price: 500,
         status: 0,
       },
       {
-        title: "RAINDROPS",
-        desciption: "Olivia Clark",
+        name: "RAINDROPS",
+        description: "Olivia Clark",
         price: 600,
         status: 0,
       },
       {
-        title: "STARLIGHT",
-        desciption: "Matthew Davis",
+        name: "STARLIGHT",
+        description: "Matthew Davis",
         price: 700,
         status: 0,
       },
       {
-        title: "FIREWORKS",
-        desciption: "Isabella Martinez",
+        name: "FIREWORKS",
+        description: "Isabella Martinez",
         price: 800,
         status: 0,
       },
       {
-        title: "BUTTERFLY",
-        desciption: "Alexander Wilson",
+        name: "BUTTERFLY",
+        description: "Alexander Wilson",
         price: 900,
         status: 0,
       },
       {
-        title: "MOONLIGHT",
-        desciption: "Lily Moore",
+        name: "MOONLIGHT",
+        description: "Lily Moore",
         price: 1000,
         status: 0,
       },
     ],
   },
-  getters: {},
-  mutations: {},
-  actions: {},
+  getters: {
+    productList: (state) => {
+      return state.productList;
+    },
+  },
+  mutations: {
+    removeItem: (state, index) => {
+      state.productList.splice(index, 1);
+    },
+  },
+  actions: {
+    deleteProduct({ commit }, index) {
+      commit("removeItem", index);
+    },
+  },
   modules: {},
 });
