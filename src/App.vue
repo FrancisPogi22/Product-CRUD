@@ -2,7 +2,7 @@
   <nav>
     <router-link to="/">Product List</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
@@ -15,7 +15,13 @@
 }
 
 nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 30px;
+  background: #ffffff;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
 nav a {
