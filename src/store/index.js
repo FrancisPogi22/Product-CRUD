@@ -68,10 +68,16 @@ export default createStore({
     addProduct(state, newProduct) {
       state.productList.push(newProduct);
     },
+    deleteProduct(state, index) {
+      state.productList.splice(index, 1);
+    },
   },
   actions: {
     addProduct({ commit }, newProduct) {
       commit("addProduct", newProduct);
+    },
+    deleteProduct({ commit }, index) {
+      commit("deleteProduct", index);
     },
   },
   getters: {

@@ -4,7 +4,7 @@
       <div class="product-list-con">
         <div class="product-header">
           <h2>Product List</h2>
-          <button @click="addProduct()">Add Product</button>
+          <button @click="addProduct()" class="add">Add Product</button>
         </div>
         <div class="product-widget-con">
           <div
@@ -23,7 +23,6 @@
         </div>
       </div>
     </div>
-
     <div v-if="showAddForm" class="add-product-form">
       <div class="add-product-header">
         <h2>Add Product</h2>
@@ -69,6 +68,8 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
+
 export default {
   methods: {
     addProduct() {
@@ -78,7 +79,17 @@ export default {
       // Edit Product
     },
     deleteProduct(index) {
-      this.$store.dispatch("deleteProduct", index);
+      Swal.fire({
+        title: "Do you want to delete this product?",
+        icon: "info",
+        showDenyButton: true,
+        confirmButtonText: "Delete",
+        denyButtonText: `Cancel`,
+      }).then((result) => {
+        if (!result.isConfirmed) return;
+
+        this.$store.dispatch("deleteProduct", index);
+      });
     },
   },
   computed: {
@@ -107,14 +118,21 @@ export default {
   display: flex;
 }
 
+#product .product-list-con {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+}
+
 #product .wrapper {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 30px;
 }
 
 #product .product-list-con {
-  padding: 100px 0;
+  padding: 120px 0;
   display: flex;
   flex-direction: column;
 }
@@ -123,6 +141,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 #product .product-widget-con {
@@ -151,17 +170,25 @@ export default {
   background: #ef4444;
 }
 
+#product .add {
+  background: #673de6;
+}
+
+#product .edit:hover {
+  background: #eab308;
+}
+
+#product .delete:hover {
+  background: #dc2626;
+}
+
+#product .add:hover {
+  background: #5025d1;
+}
+
 #product .btn-con {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-button {
-  border: none;
-  background: #673de6;
-  padding: 10px 14px;
-  color: #ffffff;
-  border-radius: 4px;
 }
 </style>
