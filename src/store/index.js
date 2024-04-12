@@ -64,19 +64,19 @@ export default createStore({
       },
     ],
   },
-  getters: {
-    productList: (state) => {
-      return state.productList;
-    },
-  },
   mutations: {
-    removeItem: (state, index) => {
-      state.productList.splice(index, 1);
+    addProduct(state, newProduct) {
+      state.productList.push(newProduct);
     },
   },
   actions: {
-    deleteProduct({ commit }, index) {
-      commit("removeItem", index);
+    addProduct({ commit }, newProduct) {
+      commit("addProduct", newProduct);
+    },
+  },
+  getters: {
+    productList(state) {
+      return state.productList;
     },
   },
   modules: {},
