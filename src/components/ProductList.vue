@@ -16,7 +16,7 @@
             {{ product.description }}
             {{ product.price }}
             <div class="btn-con">
-              <button @click="editProduct()" class="edit">Edit</button>
+              <button @click="editProduct(index)" class="edit">Edit</button>
             </div>
           </div>
         </div>
