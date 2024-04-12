@@ -84,6 +84,12 @@ export default {
   border-radius: 4px;
 }
 
+#product .btn-con {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 #product .edit {
   background: #eab308;
 }
