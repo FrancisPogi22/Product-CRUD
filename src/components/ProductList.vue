@@ -4,22 +4,26 @@
       <div class="product-list-con">
         <div class="product-header">
           <h2>Product List</h2>
-          <button @click="showAddForm = true">Add Product</button>
+          <button @click="addProduct()">Add Product</button>
         </div>
-        <div
-          class="product-widget"
-          v-for="(product, index) in productList"
-          :key="index"
-        >
-          {{ product.name }}
-          {{ product.description }}
-          {{ product.price }}
-          <div class="btn-con">
-            <button @click="editProduct()">Edit</button>
+        <div class="product-widget-con">
+          <div
+            class="product-widget"
+            v-for="(product, index) in productList"
+            :key="index"
+          >
+            {{ product.name }}
+            {{ product.description }}
+            {{ product.price }}
+            <div class="btn-con">
+              <button @click="deleteProduct()" class="delete">Delete</button>
+              <button @click="editProduct()" class="edit">Edit</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
     <div v-if="showAddForm" class="add-product-form">
       <div class="add-product-header">
         <h2>Add Product</h2>
@@ -66,34 +70,15 @@
 
 <script>
 export default {
-  data() {
-    return {
-      showAddForm: false,
-      newProduct: {
-        name: "",
-        description: "",
-        price: 0,
-      },
-    };
-  },
   methods: {
     addProduct() {
-      this.$store.dispatch("addProduct", this.newProduct);
-      this.clearForm();
-      this.showAddForm = false;
+      // Add Product
     },
     editProduct() {
-      // Handle Edit Product
+      // Edit Product
     },
-    clearForm() {
-      this.newProduct = {
-        name: "",
-        description: "",
-        price: 0,
-      };
-    },
-    closeForm() {
-      this.showAddForm = false;
+    deleteProduct(index) {
+      this.$store.dispatch("deleteProduct", index);
     },
   },
   computed: {
@@ -105,21 +90,6 @@ export default {
 </script>
 
 <style scoped>
-.product-list-con {
-  padding: 100px 0;
-}
-.wrapper {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.product-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .add-product-form {
   position: fixed;
   top: 50%;
@@ -135,70 +105,53 @@ export default {
 
 .add-product-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
 }
 
-.add-product-header h2 {
-  margin: 0;
-  font-size: 20px;
-  color: #333;
+#product .wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.add-product-header button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 20px;
-  color: #999;
-}
-
-.add-product-header button:hover {
-  color: #000;
-}
-
-.form-container {
+#product .product-list-con {
+  padding: 100px 0;
   display: flex;
   flex-direction: column;
 }
 
-.form-group {
-  margin-bottom: 15px;
+#product .product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-label {
-  font-weight: bold;
-  color: #555;
+#product .product-widget-con {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-input[type="text"],
-input[type="number"] {
+#product .product-widget-con .product-widget {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-button[type="submit"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
+  background: #ffffff;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #0056b3;
+#product .edit {
+  background: #eab308;
+}
+
+button {
+  border: none;
+  background: #673de6;
+  padding: 10px 14px;
+  color: #ffffff;
+  border-radius: 4px;
 }
 </style>
