@@ -1,8 +1,18 @@
 <template>
-  <nav>
-    <router-link to="/">Products</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <nav class="nav-bar">
+      <router-link to="/">
+        <img src="./assets/logo.png" class="logo" />
+      </router-link>
+
+      <router-link to="/addProduct">
+        <button class="nav-button">ADD PRODUCT</button>
+      </router-link>
+    </nav>
+    <div class="content">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <style>
@@ -20,39 +30,39 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-nav {
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  padding: 30px;
-  text-align: right;
+  width: 100%;
+  padding: 5px;
   background: #ffffff;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-nav a {
-  font-weight: 600;
-  color: #2c3e50;
-  text-decoration: none;
+.logo {
+  height: 70px;
+  margin-left: 60px;
 }
 
-nav a.router-link-exact-active {
-  color: #673de6;
-}
-
-section {
-  display: flex;
-}
-
-button {
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  padding: 10px 14px;
+.nav-button {
+  padding: 10px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  background-color: #6c50f0;
   color: #ffffff;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: 0.2s;
+  margin-right: 60px;
+}
+
+.content {
+  margin-top: 100px;
+  padding: 20px;
 }
 </style>
