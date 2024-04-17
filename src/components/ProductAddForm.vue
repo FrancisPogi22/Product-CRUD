@@ -17,7 +17,7 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>${{ product.price.toFixed(2) }}</td>
-                <td><button>Edit</button></td>
+                <td><button>Edit</button> <button>Delete</button></td>
               </tr>
             </tbody>
           </table>
