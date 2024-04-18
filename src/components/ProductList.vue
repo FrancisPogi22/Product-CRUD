@@ -17,7 +17,10 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>${{ product.price.toFixed(2) }}</td>
-                <td><button>Edit</button> <button>Delete</button></td>
+                <td>
+                  <button>Edit</button>
+                  <button @click="deleteProduct(index)">Delete</button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -39,26 +42,24 @@ export default {
       return this.$store.getters.productList;
     },
   },
-   methods: {
-     addProduct() {
-        
-     },
+  methods: {
+    addProduct() {},
     // editProduct() {
-      //  EditProduct
-     // },
-     deleteProduct(index) {
-       Swal.fire({
-         title: "Are you sure you want to delete this product?",
-         icon: "info",
-         showDenyButton: true,
-         confirmButtonText: "Delete",
-         denyButtonText: `Cancel`,
-       }).then((result) => {
-         if (!result.isConfirmed) return;
-         this.$store.dispatch("deleteProduct", index);
-       });
-     },
-   },
+    //  EditProduct
+    // },
+    deleteProduct(index) {
+      Swal.fire({
+        title: "Are you sure you want to delete this product?",
+        icon: "info",
+        showDenyButton: true,
+        confirmButtonText: "Delete",
+        denyButtonText: `Cancel`,
+      }).then((result) => {
+        if (!result.isConfirmed) return;
+        this.$store.dispatch("deleteProduct", index);
+      });
+    },
+  },
 };
 </script>
 
