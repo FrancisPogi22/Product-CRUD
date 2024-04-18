@@ -28,7 +28,7 @@
 </template>
 
 <script>
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 export default {
   data() {
@@ -40,27 +40,26 @@ export default {
       return this.$store.getters.productList;
     },
   },
-  // methods: {
-  //   addProduct() {
-  //     // Add Product
-  //   },
-  //   editProduct() {
-  //     // Edit Product
-  //   },
-  //   deleteProduct(index) {
-  //     Swal.fire({
-  //       title: "Do you want to delete this product?",
-  //       icon: "info",
-  //       showDenyButton: true,
-  //       confirmButtonText: "Delete",
-  //       denyButtonText: `Cancel`,
-  //     }).then((result) => {
-  //       if (!result.isConfirmed) return;
-
-  //       this.$store.dispatch("deleteProduct", index);
-  //     });
-  //   },
-  // },
+   methods: {
+     addProduct() {
+        AddProduct
+     },
+    // editProduct() {
+      //  EditProduct
+     // },
+     deleteProduct(index) {
+       Swal.fire({
+         title: "Are you sure you want to delete this product?",
+         icon: "info",
+         showDenyButton: true,
+         confirmButtonText: "Delete",
+         denyButtonText: `Cancel`,
+       }).then((result) => {
+         if (!result.isConfirmed) return;
+         this.$store.dispatch("deleteProduct", index);
+       });
+     },
+   },
 };
 </script>
 
