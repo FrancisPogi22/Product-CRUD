@@ -9,7 +9,6 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -17,7 +16,6 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>${{ product.price.toFixed(2) }}</td>
-                <td><button>Edit</button> <button>Delete</button></td>
               </tr>
             </tbody>
           </table>
