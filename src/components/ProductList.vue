@@ -34,7 +34,6 @@ export default {
   data() {
     return {};
   },
-  methods: {},
   computed: {
     productList() {
       return this.$store.getters.productList;
@@ -42,7 +41,7 @@ export default {
   },
    methods: {
      addProduct() {
-        AddProduct
+        
      },
     // editProduct() {
       //  EditProduct
