@@ -1,3 +1,4 @@
+<!-- ProductAddForm.vue -->
 <template>
   <section id="product">
     <div class="wrapper">

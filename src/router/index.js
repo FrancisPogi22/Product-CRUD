@@ -1,3 +1,5 @@
+//router/index.php
+
 import { createRouter, createWebHistory } from "vue-router";
 import ProductList from "../components/ProductList.vue";
 import addProduct from "../components/ProductAddForm.vue";

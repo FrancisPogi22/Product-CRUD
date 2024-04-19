@@ -71,6 +71,10 @@ export default createStore({
     deleteProduct(state, index) {
       state.productList.splice(index, 1);
     },
+    updateProduct(state, payload) {
+      const { index, updatedProductData } = payload;
+      state.productList[index] = updatedProductData;
+    },
   },
   actions: {
     addProduct({ commit }, newProduct) {
@@ -78,6 +82,9 @@ export default createStore({
     },
     deleteProduct({ commit }, index) {
       commit("deleteProduct", index);
+    },
+    updateProduct({ commit }, payload) {
+      commit("updateProduct", payload);
     },
   },
   getters: {
